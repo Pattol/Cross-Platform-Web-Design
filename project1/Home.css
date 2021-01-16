@@ -1,0 +1,46 @@
+body{
+    font-family:  Georgia;
+     color: black;
+     background-image:url("images/bacrownd-2.jpeg");
+     background-size:cover;
+     background-repeat: no-repeat;
+    }
+.box {
+    width: 900px;
+    float: right;
+    border: 1px solid none;
+}
+.box ul li {
+        width: 120px;
+        float: left;
+        margin: 10px auto;
+        text-align: center;
+}
+.box ul li a {
+    text-decoration: none;
+    color:#333;
+}
+.box ul li:hover{
+    background-color: tan;
+}
+.box ul li a:hover {
+    color: #333;
+}
+.wd{
+    width: 300px;
+    height: 539px;
+    background-color: tan;
+    opacity: 0.9;
+    padding: 55px;
+}
+.wd h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 100px;
+}
+
+.wd h4 {
+    text-align: justify;
+    color: black;
+    font-weight: normal;
+}
