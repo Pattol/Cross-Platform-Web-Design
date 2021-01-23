@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Student" content="Pattol Albadry">
+    <meta name="email" content="alba0126@algonquinlive.com">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background: gray;
+            font-family: 'Courier New', Courier, monospace
+        }
+
+        .calculator {
+            border: 1px solid rgb(126, 121, 121);
+            width: 255px;
+            height: 300px;
+            position: fixed;
+            left: 35%;
+            top: 15%;
+            box-shadow: 2px 5px 19px;
+            background: #808080;
+        }
+
+        .display {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0%;
+            border-radius: 4px;
+            font-size: 18px;
+            font-family: 'Courier New', Courier, monospace;
+            border: none;
+            font-weight: border;
+            background-color: rgb(207, 141, 42);
+        }
+
+        .keypad > button {
+            width: 55px;
+            height: 55px;
+            font-size: 20px;
+            border: none;
+            border-bottom: none;
+            box-shadow: 5px 0px 8px 5px grey;
+            background: rgb(255, 255, 255);
+            cursor: pointer;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bolder;
+            outline: none;
+        }
+    </style>
+    <title>Very Simple Calculator</title>
+</head>
+<script>
+    let operator = 0, oldNumber = 0, currentNumber = 0;
+
+    function pressNumber(numberPressed) {
+
+        currentNumber = (currentNumber * 10) + numberPressed;
+
+        document.getElementById("display").innerText = currentNumber;
+    }
+
+    function pressOperator(operatorPressed) {
+
+        if (operator != 0) {
+            switch (operator) {
+
+                case ('+'):
+                    currentNumber = oldNumber + currentNumber;
+                    document.getElementById("display").innerText = currentNumber;
+                    break;
+
+                case ('-'):
+                    currentNumber = oldNumber - currentNumber;
+                    document.getElementById("display").innerText = currentNumber;
+                    break;
+
+                case ('*'):
+                    currentNumber = oldNumber * currentNumber;
+                    document.getElementById("display").innerText = currentNumber;
+                    break;
+
+                case ('/'):
+                    currentNumber = oldNumber / currentNumber;
+                    document.getElementById("display").innerText = currentNumber;
+                    break;
+
+                case ('='):
+                    currentNumber = oldNumber = currentNumber;
+                    document.getElementById("display").innerText = currentNumber;
+                    break;
+            }
+        }
+        operator = operatorPressed;
+        oldNumber = currentNumber;
+        currentNumber = 0;
+    }
+    function prssCreal() {
+
+        document.getElementById("display").innerText = '0';
+        currentNumber = oldNumber = operator = operatorPressed = 0;
+    }
+</script>
+
+<body>
+    <div class="calculator">
+
+        <div class="display" id="display">
+            0
+        </div>
+
+        <div class="keypad">
+            <button onclick="pressNumber(7);">7</button>
+            <button onclick="pressNumber(8);">8</button>
+            <button onclick="pressNumber(9);">9</button>
+            <button onclick="pressOperator('-')">-</button>
+            <button onclick="pressNumber(4);">4</button>
+            <button onclick="pressNumber(5);">5</button>
+            <button onclick="pressNumber(6);">6</button>
+            <button onclick="pressOperator('/')">/</button>
+            <button onclick="pressNumber(1);">1</button>
+            <button onclick="pressNumber(2);">2</button>
+            <button onclick="pressNumber(3);">3</button>
+            <button onclick="pressOperator('*')">X</button>
+            <button onclick="pressNumber(0);">0</button>
+            <button onclick="prssCreal('clear')">C</button>
+            <button onclick="pressOperator('=')">=</button>
+            <button onclick="pressOperator('+')">+</button>
+        </div>
+
+    </div>
+</body>
+</html>
